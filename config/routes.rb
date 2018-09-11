@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+ 	get 'member', to: 'member#index'
   	get 'admin', to: 'admin#index'
   	post 'admin/create_user', to: 'admin#create', as: 'admin_create_user'
 
