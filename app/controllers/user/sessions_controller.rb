@@ -29,8 +29,10 @@ class User::SessionsController < Devise::SessionsController
 
       if resource.role == 'super_admin'
         rails_admin_path
+      elsif resource.role == 'admin'
+        admin_path
       else
-        signed_in_root_path(resource)
+        member_path
       end
   end
 end

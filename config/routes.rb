@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+    get 'redirection/index'
  	get 'member', to: 'member#index'
   	get 'admin', to: 'admin#index'
   	post 'admin/create_user', to: 'admin#create', as: 'admin_create_user'
@@ -10,9 +11,9 @@ Rails.application.routes.draw do
 	}
 
 	devise_scope :user do
-	  # authenticated :user do
-	  #   root '/', as: :authenticated_root
-	  # end
+	  authenticated :user do
+	    root 'redirection#index', as: :authenticated_root
+	  end
 
 	  unauthenticated do
 	    root 'devise/sessions#new', as: :unauthenticated_root

@@ -7,8 +7,6 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)   
 
-      # can :manage, :all
-
       if user.role == 'super_admin'
         cannot :access, :member
         can :manage, :admin
