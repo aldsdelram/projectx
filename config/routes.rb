@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'admin/index'
+  	get 'admin', to: 'admin#index'
+  	post 'admin/create_user', to: 'admin#create', as: 'admin_create_user'
+
 	devise_for :users, controllers: {
 		sessions: 'user/sessions',
 		# registrations: 'users/registrations'
